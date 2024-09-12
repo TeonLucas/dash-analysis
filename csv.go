@@ -18,7 +18,6 @@ func (data *LocalData) writeCSV() {
 
 	// Make rows
 	rows = append(rows, []string{
-		"accountId",
 		"guid",
 		"name",
 		"permalink",
@@ -34,7 +33,6 @@ func (data *LocalData) writeCSV() {
 			widget := dashboard.WidgetMap[widgetId]
 			for _, query := range widget.NrqlQueries {
 				rows = append(rows, []string{
-					fmt.Sprintf("%d", dashboard.AccountId),
 					dashboard.Guid,
 					dashboard.Name,
 					dashboard.Permalink,
