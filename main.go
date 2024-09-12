@@ -17,6 +17,7 @@ type LocalData struct {
 	CDPcancel      context.CancelFunc
 	PolicyIds      []int
 	DashboardMap   map[string]Dashboard
+	ParentGuids    []string
 	Dump           string
 }
 
@@ -45,8 +46,11 @@ func main() {
 	}
 	data.makeClient()
 
-	// Get list of policies
+	// Get list of dashboards
 	data.getDashboards()
+
+	// Get widgets and nrql
+	data.getDashboardDetails()
 
 	// Output CSV
 	data.writeCSV()
